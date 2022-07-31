@@ -9,6 +9,23 @@ import "./App.css";
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.stat = {
+      input: '',
+    }
+  }
+
+  // Create an type listener called 'onInputChange' to be used with ImageLinkForm
+  onInputChange = (event) => {
+    console.log(event.target.value);
+  }
+  
+  // Create an button click listener called 'onButtonSubmit' to be used with ImageLinkForm
+  onButtonSubmit = () => {
+    console.log('click');
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,7 +33,10 @@ class App extends Component {
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm />
+        <ImageLinkForm 
+        onInputChange={this.onInputChange} 
+        onButtonSubmit={this.onButtonSubmit}
+        />
         {/* 
         <FaceRecognition /> */}
       </div>
